@@ -4,6 +4,7 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { format } from 'date-fns';
+import BaseUrl from '../Asset/BaseUrl';
 
 const DeliveryModal = ({ open, handleClose, handleConfirm, item ,length}) => {
   const today = format(new Date(), 'yyyy-MM-dd'); // Default date to today
@@ -40,7 +41,7 @@ const DeliveryModal = ({ open, handleClose, handleConfirm, item ,length}) => {
 
   const handleDeleteClick = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4367/api/pending-records/${id}`, {
+      const response = await fetch(`${BaseUrl}/api/pending-records/${id}`, {
         method: 'DELETE',
       });
 
@@ -64,7 +65,7 @@ const DeliveryModal = ({ open, handleClose, handleConfirm, item ,length}) => {
     
     try {
       
-      const response = await fetch('http://localhost:4367/api/client-records', {
+      const response = await fetch(`${BaseUrl}/api/client-records`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

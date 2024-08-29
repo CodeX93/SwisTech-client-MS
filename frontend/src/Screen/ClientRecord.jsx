@@ -7,6 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../Theme';
 import APPBAR from '../Component/APPBAR';
+import BaseUrl from '../Asset/BaseUrl';
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -23,7 +24,7 @@ const ClientTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:4367/api/client-records');
+        const response = await fetch(`${BaseUrl}/api/client-records`);
         if (response.ok) {
           const result = await response.json();
           setData(result);

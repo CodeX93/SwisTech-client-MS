@@ -3,6 +3,7 @@ import {
   Modal, Box, Typography, TextField, Button, IconButton, Grid
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import BaseUrl from '../Asset/BaseUrl';
 
 const EditRecordModal = ({ open, handleClose, item, onSaveSuccess }) => {
   const today = new Date().toISOString().split('T')[0]; // Default date to today
@@ -46,7 +47,7 @@ const EditRecordModal = ({ open, handleClose, item, onSaveSuccess }) => {
 
   const handleSave = async (id, updatedData) => {
     
-    const response = await fetch(`http://localhost:4367/api/pending-records/${id}`, {
+    const response = await fetch(`${BaseUrl}/api/pending-records/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

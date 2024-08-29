@@ -3,6 +3,7 @@ import { Box, Typography, Grid, Card, CardContent, Divider } from '@mui/material
 import { styled } from '@mui/material/styles';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
+import BaseUrl from '../Asset/BaseUrl';
 
 // Styled components
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -30,7 +31,7 @@ const PendingAvailability = () => {
     // Fetch availability data from API
     const fetchAvailability = async () => {
       try {
-        const response = await fetch('http://localhost:4367/api/pending-records/availability');
+        const response = await fetch(`${BaseUrl}/api/pending-records/availability`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

@@ -10,6 +10,7 @@ import AddRecordModal from '../Component/AddRecordModal';
 import EditRecordModal from '../Component/EditPendingRecord';
 import DeliveryModal from '../Component/DeliveryModal'; // Import the DeliveryModal
 import { format } from 'date-fns';
+import BaseUrl from '../Asset/BaseUrl';
 
 
 
@@ -42,7 +43,7 @@ const PendingWorks = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:4367/api/pending-records/');
+        const response = await fetch(`${BaseUrl}/api/pending-records/`);
         const result = await response.json();
         setData(result);
       } catch (error) {
@@ -86,7 +87,7 @@ const PendingWorks = () => {
 
   const handleDeleteClick = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4367/api/pending-records/${id}`, {
+      const response = await fetch(`${BaseUrl}/api/pending-records/${id}`, {
         method: 'DELETE',
       });
 

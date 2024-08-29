@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import { format } from 'date-fns';
+import BaseUrl from '../Asset/BaseUrl';
 
 const ThisWeekSchedule = () => {
   const [scheduleData, setScheduleData] = useState([]);
@@ -11,7 +12,7 @@ const ThisWeekSchedule = () => {
     // Fetch schedule data for this week
     const fetchSchedule = async () => {
       try {
-        const response = await fetch('http://localhost:4367/api/pending-records/schedule');
+        const response = await fetch(`${BaseUrl}/api/pending-records/schedule`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

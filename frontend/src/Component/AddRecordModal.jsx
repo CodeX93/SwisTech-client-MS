@@ -3,6 +3,7 @@ import {
   Modal, Box, Typography, TextField, Button, IconButton, Grid, Snackbar, Alert
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import BaseUrl from '../Asset/BaseUrl';
 
 const AddRecordModal = ({ open, handleClose, length }) => {
   const today = new Date().toISOString().split('T')[0]; // Default date to today
@@ -68,7 +69,7 @@ const AddRecordModal = ({ open, handleClose, length }) => {
 
   const checkAvailability = async (date) => {
     // Assuming the availability check endpoint returns a boolean
-    const response = await fetch('http://localhost:4367/api/pending-records/check', {
+    const response = await fetch(`${BaseUrl}/api/pending-records/check`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -117,7 +118,7 @@ const AddRecordModal = ({ open, handleClose, length }) => {
 
       console.log(formData);
       console.log(apiData);
-      const response = await fetch('http://localhost:4367/api/pending-records/', {
+      const response = await fetch(`${BaseUrl}/api/pending-records/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

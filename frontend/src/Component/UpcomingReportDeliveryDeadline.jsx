@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import { format } from 'date-fns';
+import BaseUrl from "../Asset/BaseUrl"
 
 const UpcomingReportDeliveryDeadline = () => {
   const [data, setData] = useState([]);
@@ -10,7 +11,7 @@ const UpcomingReportDeliveryDeadline = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:4367/api/pending-records/next-seven-days-deliveries');
+        const response = await fetch(`${BaseUrl}/api/pending-records/next-seven-days-deliveries`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
